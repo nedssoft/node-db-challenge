@@ -53,11 +53,28 @@ const addActionValidator = (req, res, next) => {
   }
 }
 
-
+async function validateActionId(req, res, next) {
+ try {
+  const { id } = req.params;
+  if(!id || !Number(id)) {
+    throw new ErrorHandler(400, "invalid Action id" )
+  } else {
+    const action = await Action.get(id);
+    if (action) {
+      req.action = action;
+      next()
+    } else {
+      throw new ErrorHandler( 404, "Action with the specified ID does not exist")
+    }
+  }
+ } catch (error) {
+   next(error)
+ }
+};
 
 module.exports = {
   addProjectValidator,
   validateProjectId,
   addActionValidator,
-  
+  validateActionId
 }
