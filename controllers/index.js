@@ -67,10 +67,25 @@ const updateProject = async (req, res, next) => {
     next(error)
   }
 }
+const deleteProject = async (req, res, next) => {
+  try {
+    const deleted = await Project.deleteProject(req.project.id)
+    if ( deleted) {
+      return res.status(200).json({ message: 'Project deleted'})
+    }
+    throw new ErrorHandler(500, 'Could not delete project')
+  } catch (error) {
+    if (!error.statusCode) {
+      error.statusCode = 500
+    }
+    next(error)
+  }
+}
 
 module.exports = {
   createNewProject,
   createNewAction,
   getProjectById,
-  updateProject
+  updateProject,
+  deleteProject
 }

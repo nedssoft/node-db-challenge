@@ -37,9 +37,18 @@ const updateProject = async (id, project) => {
   }
 }
 
+const deleteProject = async (id) => {
+  try {
+    const deleted = await db('projects').where({ id}).del()
+    return deleted
+  } catch (error) {
+    throw new ErrorHandler(500, error.message)
+  }
+}
 
 module.exports = {
   addProject,
   getProjectById,
-  updateProject
+  updateProject,
+  deleteProject
 }
