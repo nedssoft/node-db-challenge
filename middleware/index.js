@@ -24,7 +24,7 @@ async function validateProjectId(req, res, next) {
   if(!id || !Number(id)) {
     throw new ErrorHandler(400, "invalid post id" )
   } else {
-    const project = await Project.get(id);
+    const project = await Project.getProjectById(id);
     if (project) {
       req.project = project;
       next()
