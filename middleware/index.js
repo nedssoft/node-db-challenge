@@ -37,9 +37,27 @@ async function validateProjectId(req, res, next) {
   }
 };
 
+const addActionValidator = (req, res, next) => {
+  try {
+    if (!Object.keys(req.body).length ) {
+      throw new ErrorHandler(400, 'missing the action information')
+    } else {
+      const { description } = req.body
+      if (!description) {
+        throw new ErrorHandler(400, 'missing action required description field')
+      }
+    }
+    next()
+  } catch (error) {
+    next(error)
+  }
+}
+
+
 
 module.exports = {
   addProjectValidator,
   validateProjectId,
+  addActionValidator,
   
 }
