@@ -14,6 +14,9 @@ const createNewProject = async (req, res, next) => {
       throw new ErrorHandler(500, 'Error occurred trying to save project')
     }
   } catch (error) {
+    if (!error.statusCode) {
+      error.statusCode = 500
+    }
     next(error)
   }
 }
@@ -38,7 +41,20 @@ const createNewAction = async (req, res, next) => {
   }
 }
 
+const getProjectById = async (req, res, next) => {
+  try {
+    
+    if (!req.project) {
+      throw new ErrorHandler(500, 'Project with the specified ID does not exist')
+    }
+    return res.status(200).json({ message: 'OK', project: req.project})
+  } catch (error) {
+    next(error)
+  }
+}
+
 module.exports = {
   createNewProject,
-  createNewAction
+  createNewAction,
+  getProjectById
 }
