@@ -53,8 +53,24 @@ const getProjectById = async (req, res, next) => {
   }
 }
 
+const updateProject = async (req, res, next) => {
+  try {
+    const project = await Project.updateProject(req.project.id, req.body)
+    if (project) {
+      return res.status(200).json({ message: 'Project updated', project})
+    }
+    throw new ErrorHandler(500, 'Could not update project')
+  } catch (error) {
+    if (!error.statusCode) {
+      error.statusCode = 500
+    }
+    next(error)
+  }
+}
+
 module.exports = {
   createNewProject,
   createNewAction,
-  getProjectById
+  getProjectById,
+  updateProject
 }

@@ -26,9 +26,20 @@ const addProject = async (project) => {
   }
 }
 
+const updateProject = async (id, project) => {
+  try {
+    const updated = await db('projects').update(project).where({ id })
+    if (updated) {
+      return await getProjectById(id)
+    }
+  } catch (error) {
+    throw new ErrorHandler(500, error.message)
+  }
+}
 
 
 module.exports = {
   addProject,
-  getProjectById
+  getProjectById,
+  updateProject
 }
