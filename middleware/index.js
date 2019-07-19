@@ -1,5 +1,5 @@
 
-const Project = require('../data/helpers/projectModel')
+const Project = require('../data/models/project')
 const { ErrorHandler } = require('express-error-bouncer')
 
 const addProjectValidator = (req, res, next) => {
