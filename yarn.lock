@@ -613,6 +613,11 @@ expand-tilde@^2.0.0, expand-tilde@^2.0.2:
   dependencies:
     homedir-polyfill "^1.0.1"
 
+express-error-bouncer@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/express-error-bouncer/-/express-error-bouncer-1.0.0.tgz#87f5ea28b702d7319e7eea461ae54da972380c2e"
+  integrity sha512-X65TEdMsyM4+wZ5AmKMKdx2vy0IMzvbz3jZ1TdKn9l5wpY1kA0izp0h4hrgjQQHW2PsfP9JP3+VGemhc2Obkig==
+
 express@^4.17.1:
   version "4.17.1"
   resolved "https://registry.yarnpkg.com/express/-/express-4.17.1.tgz#4491fc38605cf51f8629d39c2b5d026f98a4c134"

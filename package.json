@@ -4,7 +4,8 @@
   "description": "Web DB sprint challenge",
   "main": "index.js",
   "scripts": {
-    "test": "echo 1"
+    "test": "echo 1",
+    "server": "nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -24,6 +25,7 @@
   "homepage": "https://github.com/oriechinedu/node-db-challenge#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "express-error-bouncer": "^1.0.0",
     "knex": "^0.19.0",
     "sqlite3": "^4.0.9"
   },
