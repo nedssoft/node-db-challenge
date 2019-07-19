@@ -1,0 +1,33 @@
+{
+  "name": "db-challenge",
+  "version": "1.0.0",
+  "description": "Web DB sprint challenge",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oriechinedu/node-db-challenge.git"
+  },
+  "keywords": [
+    "Express",
+    "sql",
+    "database",
+    "nodejs"
+  ],
+  "author": "orie chinedu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/oriechinedu/node-db-challenge/issues"
+  },
+  "homepage": "https://github.com/oriechinedu/node-db-challenge#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "knex": "^0.19.0",
+    "sqlite3": "^4.0.9"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  }
+}
